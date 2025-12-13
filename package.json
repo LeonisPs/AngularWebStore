@@ -1,12 +1,9 @@
 {
     "name":"webstore",
     "version":"1.0.0",
-    "engines": {
-        "node": ">20 <=21"
-    },
     "scripts": {
         "start": "cd BackEnd/build && node server.js",
-        "prebuild": "cd Backend && npm run build",
-        "build": "cd ClientSide && npm run build"
+        "prebuild": "cd BackEnd && npm run build",
+        "build": "cd ClientSide && ng build"
     }
 }
