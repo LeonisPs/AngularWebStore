@@ -48,6 +48,6 @@
   "devDependencies": {
     "@angular/build": "^21.0.1",
     "@angular/cli": "^21.0.1",
-    "@angular/compiler-cli": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0"
   }
 }
