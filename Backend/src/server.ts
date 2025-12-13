@@ -59,7 +59,7 @@ const angularDistPath = path.join(__dirname, '../../ClientSide/dist/ClientSide/b
 app.use(express.static(angularDistPath));
 
 // Catch-all: redirect all other routes to Angular
-app.get('/*', (req, res) => {
+app.get('/.*/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../ClientSide/dist/ClientSide/browser/index.html'));
 });
 
