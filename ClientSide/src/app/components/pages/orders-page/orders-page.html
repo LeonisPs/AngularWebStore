@@ -1,0 +1,15 @@
+<div class="p-6">
+    <h1 class="text-2xl font-semibold mb-4">Your Orders</h1>
+    @for (order of orders; track $index) {
+        <a [routerLink]="['/track/', order.id]">
+            <div class="p-4 mb-4 bg-white shadow rounded">
+                <div class="font-semibold">
+                    Order #{{ order.id }} — {{ order.status }}
+                </div>
+                <div class="text-gray-600">
+                    {{ order.createdAt | date:'medium' }}
+                </div>
+            </div>
+        </a>
+    }
+</div>

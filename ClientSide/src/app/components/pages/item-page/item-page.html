@@ -1,0 +1,37 @@
+@if (item) {
+    <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div class="rounded-3xl overflow-hidden shadow-md">
+            <img 
+                [src]="item.imageUrl" 
+                [alt]="item.name" 
+                class="w-full h-[420px] object-cover"
+            >
+        </div>
+        <div class="flex flex-col gap-4">
+            <div class="flex justify-between items-start">
+                <h1 class="text-3xl font-bold">{{ item.name }}</h1>
+            </div>
+            <p class="text-l">
+               <span class="font-semibold">{{ item.description}}</span>
+            </p>
+            <p class="text-xl">
+                Price: <span class="text-green-600 font-bold">{{ item.price | currency }}</span>
+            </p>
+            <div class="mt-4">
+                <p-button
+                    (onClick)="addToCart()"
+                    styleClass="w-full p-button-rounded py-3"
+                >
+                    Add To Cart
+                </p-button>
+            </div>
+        </div>
+    </div>
+
+}
+<app-not-found
+    [visible]="!item.id"
+    notFoundMessage="Nothing found :c"
+    resetLinkText="Go To Home"
+>
+</app-not-found>

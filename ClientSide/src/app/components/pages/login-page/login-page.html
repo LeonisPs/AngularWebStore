@@ -1,0 +1,33 @@
+<div class="card flex justify-center items-center">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="flex flex-col gap-4 sm:w-56">
+        <div class="flex flex-col gap-1 p-2">
+            <p-floatlabel variant="on">
+                <input pInputText type="email" id="email" placeholder="Email" formControlName="email" [invalid]="isInvalid('email')" />
+                <label for="email">Email</label>
+            </p-floatlabel>
+            @if (isInvalid('email')) {
+                @if (fc['email']?.errors?.['required']) {
+                    <p-message severity="error" size="small" variant="simple">Email is required.</p-message>
+                }
+                @if (fc['email']?.errors?.['email']) {
+                    <p-message severity="error" size="small" variant="simple">Please enter a valid email.</p-message>
+                }
+            }
+        </div>
+        <div class="flex flex-col gap-1 p-2">
+            <p-floatlabel variant="on">
+                <p-password formControlName="password" id="password" placeholder="Password" [invalid]="isInvalid('password')" [feedback]="false" autocomplete="off" />
+                <label for="password">Password</label>
+            </p-floatlabel>
+            @if (isInvalid('password')) {
+                <p-message severity="error" size="small" variant="simple">Password is required.</p-message>
+            }
+        </div>
+        <div class="flex flex-col gap-1 p-2">
+            <button pButton severity="contrast" type="submit"><span pButtonLabel>Login</span></button>
+        </div>
+        <div class="flex flex-col gap-1 p-2">
+            <a routerLink="/register">New User? Register Here</a>
+        </div>
+    </form>
+</div>

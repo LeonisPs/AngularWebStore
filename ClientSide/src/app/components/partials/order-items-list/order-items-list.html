@@ -1,0 +1,41 @@
+<table class="w-[30rem] border-[1px] rounded-md pt-[0.5rem] pl-[1rem]">
+    <tr>
+        <td colspan="5">
+            <h3 class="mt-[0.5rem] ml-[0.3rem]">Order Items:</h3>
+        </td>
+    </tr>
+    @for (thing of order.items; track $index) {
+    <tr>
+        <td>
+            <a class=" hover:opacity-75" routerLink="/items/{{thing.item.id}}">
+                <img [src]="thing.item.imageUrl"/>
+            </a>
+        </td>
+        <td>
+            {{thing.item.name}}
+        </td>
+        <td>
+            {{thing.item.price | currency}}
+        </td>
+        <td>
+            {{thing.quantity}}
+        </td>
+        <td>
+            {{thing.price | currency}}
+        </td>
+    </tr>
+    }
+    <tr>
+        <td colspan="3"></td>
+        <td>
+            <strong>
+                Total: 
+            </strong>
+        </td>
+        <td>
+            <strong>
+                {{order.totalPrice | currency}}
+            </strong>
+        </td>
+    </tr>
+</table>

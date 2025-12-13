@@ -1,0 +1,74 @@
+<div class="card flex justify-center items-center">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()" class="flex flex-col gap-4 sm:w-56">
+        <!-- name -->
+        <div class="flex flex-col gap-1 p-2">
+            <p-floatlabel variant="on">
+                <input pInputText type="text" id="name" placeholder="Name" formControlName="name" [invalid]="isInvalid('name')" />
+                <label for="name">Name</label>
+            </p-floatlabel>
+            @if (fc['name']?.errors?.['required']) {
+                <p-message severity="error" size="small" variant="simple">name is required.</p-message>
+            }
+            @if (fc['name']?.errors?.['minlength']) {
+                <p-message severity="error" size="small" variant="simple">Name is too short.</p-message>
+            }
+        </div>
+        <!-- email -->
+        <div class="flex flex-col gap-1 p-2" >
+            <p-floatlabel variant="on">
+                <input pInputText type="email" id="email" placeholder="Email" formControlName="email" [invalid]="isInvalid('email')" />
+                <label for="email">Email</label>
+            </p-floatlabel>
+            @if (isInvalid('email')) {
+                @if (fc['email']?.errors?.['required']) {
+                    <p-message severity="error" size="small" variant="simple">Email is required.</p-message>
+                }
+                @if (fc['email']?.errors?.['email']) {
+                    <p-message severity="error" size="small" variant="simple">Please enter a valid email.</p-message>
+                }
+            }
+        </div>
+        <!-- password -->
+        <div class="flex flex-col gap-1 p-2">
+            <p-floatlabel variant="on">
+                <p-password formControlName="password" id="password" placeholder="Password" [invalid]="isInvalid('password')" [feedback]="false" autocomplete="off" />
+                <label for="password">Password</label>
+            </p-floatlabel>
+            @if (fc['password']?.errors?.['required']) {
+                <p-message severity="error" size="small" variant="simple">Password is required.</p-message>
+            }
+            @if (fc['password']?.errors?.['minlength']) {
+                <p-message severity="error" size="small" variant="simple">Password is too short.</p-message>
+            }
+        </div>
+        <!-- confirm password -->
+        <div class="flex flex-col gap-1 p-2">
+            <p-floatlabel variant="on">
+                <p-password formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm Password" [invalid]="isInvalid('confirmPassword')" [feedback]="false" autocomplete="off" />
+                <label for="confirmPassword">Confirm Password</label>
+            </p-floatlabel>
+            @if (fc['confirmPassword']?.errors?.['required']) {
+                <p-message severity="error" size="small" variant="simple">Confirm Password is required.</p-message>
+            }
+            @if (fc['confirmPassword']?.errors?.['notMatch']) {
+                <p-message severity="error" size="small" variant="simple">Confirm Password doesnt match password.</p-message>
+            }
+        </div> 
+        <!-- adress -->
+        <div class="flex flex-col gap-1 p-2" >
+            <p-floatlabel variant="on">
+                <input pInputText type="text" id="address" placeholder="Address" formControlName="address" [invalid]="isInvalid('address')" />
+                <label for="address">Adress</label>
+            </p-floatlabel>
+            @if (isInvalid('address')) {
+                <p-message severity="error" size="small" variant="simple">Address is required.</p-message>
+            }
+        </div>
+        <div class="flex flex-col gap-1 p-2">
+            <button pButton severity="contrast" type="submit"><span pButtonLabel>Register</span></button>
+        </div>
+        <div class="flex flex-col gap-1 p-2">
+            <a routerLink="/login">Already a User? Login Here</a>
+        </div>
+    </form>
+</div>

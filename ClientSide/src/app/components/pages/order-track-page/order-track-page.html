@@ -1,0 +1,45 @@
+@if(order){
+  <div class="card  max-w-2xl mx-auto mt-10">
+    <h1 class="text-2xl font-semibold">
+      Order #{{ order.id }}
+    </h1>
+
+    <div class="grid grid-cols-1 gap-2">
+      <span class="flex justify-between border-b py-1">
+        <span class="font-medium">Date:</span>
+        <span>{{ order.createdAt | date:'medium' }}</span>
+      </span>
+
+      <span class="flex justify-between border-b py-1">
+        <span class="font-medium">Name:</span>
+        <span>{{ order.name }}</span>
+      </span>
+
+      <span class="flex justify-between border-b py-1">
+        <span class="font-medium">Last Name:</span>
+        <span>{{ order.lastname }}</span>
+      </span>
+
+      <span class="flex justify-between border-b py-1">
+        <span class="font-medium">Address:</span>
+        <span>{{ order.address }}</span>
+      </span>
+
+      <span class="flex justify-between border-b py-1">
+        <span class="font-medium">Status:</span>
+        <span class="capitalize">{{ order.status }}</span>
+      </span>
+
+      @if(order.paymentId){
+        <span class="flex justify-between border-b py-1">
+          <span class="font-medium">Payment ID:</span>
+          <span>{{ order.paymentId }}</span>
+        </span>
+      }
+    </div>
+
+    <div class="mt-4 flex flex-col justify-center items-center">
+      <order-items-list [order]="order"></order-items-list>
+    </div>
+  </div>
+}

@@ -1,0 +1,27 @@
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template #start>
+            <a routerLink="/">MyWebStore</a>
+        </ng-template>
+        <ng-template #item let-item let-root="root">
+            <a routerLink="{{item.routerLink}}" class="flex items-center px-4 py-3 cursor-pointer gap-2">
+                <i class="{{item.icon}}"></i>
+                <span>{{ item.label }}</span>
+                @if (item.badge)
+                    {<p-badge [ngClass]="{ 'ms-auto': !root }" [value]="item.badge" />}
+                @if (item.items)
+                    {<i [ngClass]="['ms-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>}
+            </a>
+        </ng-template>
+        <ng-template #end>
+            <div class="flex items-center gap-10" >
+                <p-toggleswitch (ngModel)="checked" (onChange)="toggleDarkMode()">
+                    <ng-template #handle let-checked="checked">
+                        <i [ngClass]="['!text-xs', 'pi', checked ? 'pi-moon' : 'pi-sun']"></i>
+                    </ng-template>
+                </p-toggleswitch>
+                <app-search></app-search>
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>
