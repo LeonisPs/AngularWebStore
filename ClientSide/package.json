@@ -44,5 +44,8 @@
     "@angular/cli": "^21.0.1",
     "@angular/compiler-cli": "^21.0.0",
     "typescript": "~5.9.2"
+  },
+  "devDependencies": {
+    "@angular/cli": "^21.0.1"
   }
 }
