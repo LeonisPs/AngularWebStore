@@ -6,7 +6,7 @@
     },
     "scripts": {
         "start": "cd BackEnd/build && node server.js",
-        "prebuild": "cd Backend && npm run build",
+        "prebuild": "cd Backend && npm run build --force --legacy-peer-deps",
         "build": "npm --prefix ClientSide install && npm --prefix ClientSide run build"
     }
 }
