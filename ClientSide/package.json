@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -41,11 +41,10 @@
     "tailwindcss-primeui": "^0.6.1",
     "tslib": "^2.3.0",
     "@angular/build": "^21.0.1",
-    "@angular/cli": "^21.0.1",
-    "@angular/compiler-cli": "^21.0.0",
     "typescript": "~5.9.2"
   },
   "devDependencies": {
-    "@angular/cli": "^21.0.1"
+    "@angular/cli": "^21.0.1",
+    "@angular/compiler-cli": "^21.0.0"
   }
 }
