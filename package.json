@@ -7,6 +7,6 @@
     "scripts": {
         "start": "cd BackEnd/build && node server.js",
         "prebuild": "cd Backend && npm run build",
-        "build": "cd ClientSide && ng build"
+        "build": "cd ClientSide && npx ng build"
     }
 }
