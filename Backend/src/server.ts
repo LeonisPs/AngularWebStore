@@ -23,7 +23,7 @@ app.use("/api/orders", orderRouter);
 
 app.use(express.static(path.join('public','browser')));
 app.get(/.*/, (req, res) => {
-    res.sendFile(path.join(__dirname,'public','index.html'));
+    res.sendFile(path.join(__dirname,'public','browser','index.html'));
 });
 
 const port = process.env.PORT || 5000;
