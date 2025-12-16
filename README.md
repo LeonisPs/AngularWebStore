@@ -1,5 +1,5 @@
 # AngularWebStore
-page url: https://angularwebstore.onrender.com/cart-page
+page url: https://angularwebstore.onrender.com
 <br>
 //main page
 <img width="1914" height="903" alt="Screenshot 2025-12-16 125600" src="https://github.com/user-attachments/assets/16501d98-943b-4320-ab73-28569730d7e4" />
