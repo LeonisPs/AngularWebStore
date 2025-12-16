@@ -19,9 +19,11 @@
                 <span>{{order.phoneNumber}}</span>
             </div>
         }
+    </div>
+    <div class="flex flex-col gap-4 sm:w-56">
+        <order-items-list [order]="order"></order-items-list>
         <div class="flex flex-col gap-1 p-2">
             <app-paypal-button [order]="order"></app-paypal-button>
         </div>
     </div>
-    <order-items-list [order]="order"></order-items-list>
 </div>

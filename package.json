@@ -1,9 +1,12 @@
 {
     "name":"webstore",
     "version":"1.0.0",
+    "engines": {
+        "node": ">=24.11.1 <25.0.0"
+    },
     "scripts": {
-        "start": "cd BackEnd/build && node server.js",
-        "prebuild": "cd BackEnd && npm run build",
-        "build": "cd ClientSide && ng build"
+        "start": "cd Backend/build && node server.js",
+        "prebuild": "cd Backend && npm run build ",
+        "build": "npm --prefix ClientSide install --force --legacy-peer-deps && npm --prefix ClientSide run build"
     }
 }
