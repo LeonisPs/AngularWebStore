@@ -1,5 +1,5 @@
 # AngularWebStore
-page url: https://angularwebstore.onrender.com/cart-page
+page url: https://angularwebstore.onrender.com
 <br>
 //main page
 <img width="1914" height="903" alt="Screenshot 2025-12-16 125600" src="https://github.com/user-attachments/assets/16501d98-943b-4320-ab73-28569730d7e4" />
@@ -20,4 +20,6 @@ page url: https://angularwebstore.onrender.com/cart-page
 //order tracking
 <img width="1907" height="900" alt="Screenshot 2025-12-16 125624" src="https://github.com/user-attachments/assets/f1552615-bcdd-4ad6-8a9c-4f1964c95c51" />
 <img width="1902" height="905" alt="Screenshot 2025-12-16 125608" src="https://github.com/user-attachments/assets/e1b5b390-ab88-4dec-bd24-0a79f9dce6ce" />
+//maestro test
+https://github.com/user-attachments/assets/0819d57b-87a4-4319-afc1-1d0bf2d376f9
 
