@@ -1,4 +1,4 @@
-@if(order){
+@if(order$ | async; as order){
   <div class="card  max-w-2xl mx-auto mt-10">
     <h1 class="text-2xl font-semibold">
       Order #{{ order.id }}

@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component,NgZone  } from '@angular/core';
 import { Item } from '../../../shared/models/item';
 import { ItemService } from '../../../services/item.service';
 import { ActivatedRoute, RouterLink } from "@angular/router";
-import {CurrencyPipe} from '@angular/common';
+import {AsyncPipe, CurrencyPipe} from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { NotFound } from "../../partials/not-found/not-found";
 import { Observable, switchMap } from 'rxjs';
@@ -14,19 +14,20 @@ import { Observable, switchMap } from 'rxjs';
     RouterLink,
     CurrencyPipe,
     CardModule,
-    NotFound
+    NotFound,
+    AsyncPipe
 ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-  Items: Item[] | null = null;
+  items$!: Observable<Item[]>;
 
   constructor(private itemService:ItemService,private cdr: ChangeDetectorRef,private activatedRoute:ActivatedRoute){
   };
   
   ngOnInit():void{
-    this.activatedRoute.params
+     this.items$ =this.activatedRoute.params
       .pipe(
         switchMap(params => {
           if (params['search']) {
@@ -34,9 +35,6 @@ export class Home {
           }
           return this.itemService.getAll();
         })
-      )
-      .subscribe(serverItems => {
-        this.Items = serverItems;
-      });
+      );
   }
 }

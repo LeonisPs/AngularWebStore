@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { LoadingService } from '../../../services/loading.service';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-loading',
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './loading.html',
   styleUrl: './loading.scss',
 })
 export class Loading {
-  isLoading!: boolean;
+  isLoading$!: Observable<boolean>;
   constructor(loadingService: LoadingService){
-    loadingService.isLoading.subscribe((isLoading) => {
-      this.isLoading = isLoading;
-    })
+    this.isLoading$ = loadingService.isLoading;
   }
 }

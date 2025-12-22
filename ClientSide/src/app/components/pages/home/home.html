@@ -1,27 +1,28 @@
-
-<app-not-found
-[visible]="!Items || !Items.length"
-notFoundMessage="Nothing found :C"
-resetLinkText="Go To Home"
->
-</app-not-found>
-<div class=" card items-grid mb-4 p-8">
-    @for (item of Items; track $index) {
-        <p-card routerLink="/items/{{item.id}}" class="card shadow-md">
-            <ng-template #header>
-                <div class="rounded-3xl overflow-hidden shadow-md">
-                    <img [src]="item.imageUrl" 
-                    [alt]="item.name" 
-                    class="w-full h-[420px] object-cover"
-                    >
-                </div>
-            </ng-template>
-            <ng-template #title>
-                {{item.name}}
-            </ng-template>
-            <ng-template #subtitle>
-                {{item.price | currency}}
-            </ng-template>
-        </p-card >
-    }
-</div>
+@if (items$ | async; as Items) {
+    <app-not-found
+    [visible]="!Items || !Items.length"
+    notFoundMessage="Nothing found :C"
+    resetLinkText="Go To Home"
+    >
+    </app-not-found>
+    <div class=" card items-grid mb-4 p-8">
+        @for (item of Items; track $index) {
+            <p-card routerLink="/items/{{item.id}}" class="card shadow-md">
+                <ng-template #header>
+                    <div class="rounded-3xl overflow-hidden shadow-md">
+                        <img [src]="item.imageUrl" 
+                        [alt]="item.name" 
+                        class="w-full h-[420px] object-cover"
+                        >
+                    </div>
+                </ng-template>
+                <ng-template #title>
+                    {{item.name}}
+                </ng-template>
+                <ng-template #subtitle>
+                    {{item.price | currency}}
+                </ng-template>
+            </p-card >
+        }
+    </div>
+}
